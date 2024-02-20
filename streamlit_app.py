@@ -48,11 +48,28 @@ def app():
     else:
         enabledownload = False
 
-    # Get user's inputs
-    n_samples = int(st.number_input("Enter the number of samples:"))
+    # Create a slider with a label and initial value
+    n_samples = st.slider(
+    label="Enter the number of samples (200 to 4000):",
+    min_value=200,
+    max_value=4000,
+    value=1000,  # Initial value
+    )
     cluster_std = st.number_input("Standard deviation (between 0 and 1):")
-    random_state = int(st.number_input("Random seed (between 0 and 100):"))
-    n_clusters = int(st.number_input("Number of Clusters (between 2 and 6):"))
+
+    random_state = st.slider(
+    label="Random seed (between 0 and 100):",
+    min_value=0,
+    max_value=100,
+    value=42,  # Initial value
+    )
+   
+    n_clusters = st.slider(
+    label="Number of Clusters:",
+    min_value=2,
+    max_value=6,
+    value=2,  # Initial value
+    )
 
     if st.button('Start'):
 
