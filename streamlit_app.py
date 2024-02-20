@@ -53,6 +53,7 @@ def app():
     label="Enter the number of samples (200 to 4000):",
     min_value=200,
     max_value=4000,
+    step=200,
     value=1000,  # Initial value
     )
     cluster_std = st.number_input("Standard deviation (between 0 and 1):")
